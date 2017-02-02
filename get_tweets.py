@@ -28,11 +28,13 @@ def get_tweets(username):
 	tweets = api.user_timeline(screen_name = username,count = number_of_tweets)
 
 	#create array of tweet text
-	tweets = [[tweet.text.encode("utf-8")] for tweet in tweets]
+	tweets_text[]
+	for tweet in tweets
+		tweets_text.append(tweet.text.encode("utf-8"))
 
 	#write to a new csv file from the array of tweets
-	fh = open("{0}_tweets.txt", "w")
-	for tweet in tweets:
+	fh = open("tweets.txt", "w")
+	for tweet in tweets_text:
   		print >> fh, tweet
 	
 
