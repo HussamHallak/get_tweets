@@ -26,6 +26,9 @@ def get_tweets(username):
 
 	#get tweets
 	tweets = api.user_timeline(screen_name = username,count = number_of_tweets)
+	
+	for tweet in tweets:
+		print tweet
 
 	#create array of tweet information: username, tweet id, date/time, text
 	tweets_for_csv = [[username,tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")] for tweet in tweets]
