@@ -28,7 +28,7 @@ def get_tweets(username):
 	tweets = api.user_timeline(screen_name = username,count = number_of_tweets)
 
 	#create array of tweet text
-	tweets_text[]
+	tweets_text = []
 	for tweet in tweets
 		tweets_text.append(tweet.text.encode("utf-8"))
 
