@@ -22,20 +22,19 @@ def get_tweets(username):
 	api = tweepy.API(auth)
 
 	#set count to however many tweets you want; twitter only allows 200 at once
-	number_of_tweets = 100
+	number_of_tweets = 200
 
 	#get tweets
 	tweets = api.user_timeline(screen_name = username,count = number_of_tweets)
 
-	#create array of tweet information: username, tweet id, date/time, text
-	tweets_for_csv = [[username,tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")] for tweet in tweets]
+	#create array of tweet text
+	tweets = [[tweet.text.encode("utf-8")] for tweet in tweets]
 
 	#write to a new csv file from the array of tweets
-	print "writing to {0}_tweets.csv".format(username)
-	with open("{0}_tweets.csv".format(username) , 'w+') as file:
-		writer = csv.writer(file, delimiter='|')
-		writer.writerows(tweets_for_csv)
-
+	fh = open("{0}_tweets.txt", "w")
+	for tweet in tweets:
+  		print >> fh, tweet
+	
 
 #if we're running this as a script
 if __name__ == '__main__':
