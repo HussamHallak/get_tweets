@@ -22,7 +22,7 @@ def get_tweets(username):
 	api = tweepy.API(auth)
 
 	#set count to however many tweets you want; twitter only allows 200 at once
-	number_of_tweets = 100
+	number_of_tweets = 200
 
 	#get tweets
 	tweets = api.user_timeline(screen_name = username,count = number_of_tweets)
